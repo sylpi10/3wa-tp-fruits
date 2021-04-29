@@ -60,11 +60,8 @@ class Cart extends React.Component {
 
   updatetotal(){
     // for (const fruit of this.state.allFruits) {
-     this.state.total ++;
+      //
     // }
-    this.setState({
-      total: this.state.total
-    })
     console.log(this.state.total);
   }
 
