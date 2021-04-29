@@ -34,30 +34,34 @@ class Cart extends React.Component {
 
   addOne(fruit){
     fruit.quantity ++;
+    this.state.total ++;
     this.setState({
-      allFruits: this.state.allFruits
+      allFruits: this.state.allFruits,
+      total: this.state.total
   });
-  this.updatetotal();
+  // this.updatetotal();
   }
   minusOne(fruit){
     fruit.quantity --;
+    this.state.total --;
     this.setState({
-      allFruits: this.state.allFruits
+      allFruits: this.state.allFruits,
+      total: this.state.total
   });
-  this.updatetotal();
+  // this.updatetotal();
   }
   reset(fruit){
     fruit.quantity = 0;
     this.setState({
       allFruits: this.state.allFruits
   });
-  this.updatetotal();
+  // this.updatetotal();
   }
 
   updatetotal(){
-    for (const fruit of this.state.allFruits) {
-     this.total += fruit.quantity;
-    }
+    // for (const fruit of this.state.allFruits) {
+     this.state.total ++;
+    // }
     this.setState({
       total: this.state.total
     })
@@ -67,6 +71,7 @@ class Cart extends React.Component {
   render(){
     return(
       <div className="">
+       
           <nav>
           <ul>
              <li> Home</li>
@@ -78,6 +83,7 @@ class Cart extends React.Component {
             </div>
           </ul>
         </nav>
+        <h1>Amazing Fruits Shop</h1>
         <div className="fruits">
 
          <h2> Our Fruits</h2>
