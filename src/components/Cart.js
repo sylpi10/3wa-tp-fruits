@@ -15,7 +15,6 @@ class Cart extends React.Component {
       this.state = ({
         allFruits: [],
         total: 0,
-        presentation: '',
         isHome: false
       })
 
@@ -31,7 +30,6 @@ class Cart extends React.Component {
     this.state.allFruits.push(straw,apple, cherries);
     this.setState({
       allFruits: this.state.allFruits,
-      presentation: "Welcome to our amazing shop ! We have some outstanding fruits !",
       isHome: false
   });
    
@@ -39,20 +37,21 @@ class Cart extends React.Component {
 
   addOne(fruit){
     fruit.quantity ++;
+    // this.state.total ++;
     this.setState({
-      total: this.state.total ++,
       allFruits: this.state.allFruits,
-      total: this.state.total
+      total: this.state.total +1
   });
   // this.updatetotal();
   }
   minusOne(fruit){
     if (fruit.quantity > 0) {
       fruit.quantity --;
+      // this.state.total --;
       this.setState({
-        total: this.state.total --,
+        // total: this.state.total --,
         allFruits: this.state.allFruits,
-        total: this.state.total,
+        total: this.state.total -1,
     });
     }
   // this.updatetotal();
@@ -61,7 +60,7 @@ class Cart extends React.Component {
     this.state.total = this.state.total - fruit.quantity;
     fruit.quantity = 0;
     this.setState({
-      allFruits: this.state.allFruits
+      allFruits: this.state.allFruits,
   });
   // this.updatetotal();
   }
@@ -99,21 +98,27 @@ class Cart extends React.Component {
             </ul>
         </nav>
 
+        {/* display if click on home */}
         {this.state.isHome ?
           <div>
-            <h2>{this.state.presentation}</h2>
+            <h1>Welcome to our amazing shop !</h1>
+            <h2>We have some outstanding fruits !</h2>
           </div>
           :
           <div>
-
-          <h1 className="pb-1">Amazing Fruits Shop</h1>
-          <div className="fruits bg-dark mt-4 p-5 text-white list-unstyled">
-           <h2 className="text-uppercase"> Our Fruits</h2>
+            {/* else : display our fruits */}
+          
+            <h1 className="pb-1">Amazing Fruits Shop</h1>
+            <div className="fruits bg-dark mt-4 p-5 text-white list-unstyled">
+            <h2 className="text-uppercase"> Our Fruits</h2>
                   <ul className="fruits-wrap list-unstyled d-flex">
                       {this.state.allFruits.map((fruit, i) => (
                       <li className="mx-auto p-3 bg-white text-dark m-3 text-capitalize" key = {i}>
-                        <div className={fruit.name}></div>
-                        <h3>{fruit.name} </h3>
+                           {/* empty div to diplay img  */}
+                          <div className={fruit.name}></div>
+                          {/* fruits details */}
+                          <h3>{fruit.name} <span className="text-info m-2 small">{fruit.price} $</span> </h3>
+                         
                           <h4>{fruit.quantity} </h4>
                       <div>
                           <button onClick={() => this.addOne(fruit) }className="btn addone-btn text-dark font-weight-bold mx-auto m-2 pl-3 pr-3 pb-2 w-100">+</button>
@@ -121,14 +126,13 @@ class Cart extends React.Component {
                           <button onClick={() => this.reset(fruit) }className="btn bg-dark text-white mx-auto m-2 pl-3 pr-3 pb-2 w-100">x</button>
                         </div>
                       </li>
-  
-                  ))}
+                      ))}
                   </ul>
-          </div>
+            </div>
           </div>
   
-} 
-</div>
+          } 
+        </div>
       
     )
   }
