@@ -16,14 +16,17 @@ nav > ul {
 
 .fruits {
   background-color: rgb(246, 220, 162);
-  margin-top: 40px;
+  margin-top: 60px;
   padding: 50px;
 }
-.fruits .fruits-wrap {
-  display: flex;
+.fruits {
+  /* display: flex; */
   margin: auto;
-  justify-content: space-around;
   list-style-type: none;
+}
+.fruits ul {
+  list-style-type: none;
+  display: flex;
 }
 .fruits ul li {
   width: 300px;
