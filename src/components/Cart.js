@@ -1,9 +1,10 @@
 import React from 'react';
 
 class Fruit {
-  constructor(name, quantity) {
+  constructor(name, quantity, price) {
     this.name = name;
     this.quantity = quantity;
+    this.price = price;
   }
 }
 
@@ -17,9 +18,9 @@ class Cart extends React.Component {
   }
 
   componentDidMount(){
-    const straw = new Fruit("strawberry", 0);
-    const apple = new Fruit("apple", 0);
-    const cherries = new Fruit("cherries", 0);
+    const straw = new Fruit("strawberry", 0, 1.5);
+    const apple = new Fruit("apple", 0, 2);
+    const cherries = new Fruit("cherries", 0, .80);
     this.state.allFruits.push(straw,apple, cherries);
     this.setState({
       allFruits: this.state.allFruits
@@ -29,8 +30,8 @@ class Cart extends React.Component {
 
   addOne(fruit){
     fruit.quantity ++;
-    this.state.total ++;
     this.setState({
+      total: this.state.total ++,
       allFruits: this.state.allFruits,
       total: this.state.total
   });
@@ -39,9 +40,9 @@ class Cart extends React.Component {
   minusOne(fruit){
     if (fruit.quantity > 0) {
       fruit.quantity --;
-      this.state.total --;
     }
     this.setState({
+      total: this.state.total --,
       allFruits: this.state.allFruits,
       total: this.state.total
   });
@@ -65,9 +66,9 @@ class Cart extends React.Component {
 
   render(){
     return(
-      <div className="">
+      <div className="border border-light">
           <nav>
-            <ul>
+            <ul className="bg-dark text-white d-flex justify-content-around list-unstyled flex-wrap p-3">
               <li> Home</li>
               <li> Our Fruits </li>
               <div>
@@ -77,30 +78,26 @@ class Cart extends React.Component {
               </div>
             </ul>
         </nav>
-        <div className="container">
+        <h1 className="pb-1">Amazing Fruits Shop</h1>
 
-        <h1 className="mt-5">Amazing Fruits Shop</h1>
-        <div className="fruits shadow">
-
-         <h2> Our Fruits</h2>
-                <ul className="fruits-wrap">
+        <div className="fruits bg-dark mt-4 p-5 text-white list-unstyled">
+         <h2 className="text-uppercase"> Our Fruits</h2>
+                <ul className="fruits-wrap list-unstyled d-flex">
                     {this.state.allFruits.map((fruit, i) => (
-                    <li key = {i}>
+                    <li className="mx-auto p-3 bg-white text-dark m-3 text-capitalize" key = {i}>
                       <div className={fruit.name}></div>
                       <h3>{fruit.name} </h3>
                         <h4>{fruit.quantity} </h4>
                     <div>
-                        <button onClick={() => this.addOne(fruit) } className="btn btn-primary">+</button>
-                        <button onClick={() => this.minusOne(fruit) } className="btn btn-warning">-</button>
-                        <button onClick={() => this.reset(fruit) } className="btn btn-danger">x</button>
+                        <button onClick={() => this.addOne(fruit) }className="btn addone-btn text-dark font-weight-bold mx-auto m-2 pl-3 pr-3 pb-2 w-100">+</button>
+                        <button onClick={() => this.minusOne(fruit) } className="btn btn-warning text-dark font-weight-bold mx-auto m-2 pl-3 pr-3 pb-2 w-100">-</button>
+                        <button onClick={() => this.reset(fruit) }className="btn bg-dark text-white mx-auto m-2 pl-3 pr-3 pb-2 w-100">x</button>
                       </div>
                     </li>
 
                 ))}
                 </ul>
         </div>
-        </div>
-
 
         {/* <Fruits/> */}
       </div>

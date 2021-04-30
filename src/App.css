@@ -1,58 +1,25 @@
-.container {
-  text-align: center;
-  width: 74%;
-  margin: auto;
+.addone-btn {
+  background-color: #49ef49 !important;
 }
 
-nav > ul {
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  padding: 12px;
-  flex-wrap: wrap;
-}
-
-.fruits {
-  /* display: flex; */
-  margin: auto;
-  list-style-type: none;
-  padding: 40px;
-  color: #fff;
-}
-.fruits ul {
-  list-style-type: none;
-  display: flex;
-}
-.fruits ul li {
-  width: 300px;
-  padding: 12px;
-  border-radius: 8px;
-  background-color: #fff;
-  margin: 20px;
-  color: #333;
-  border: solid 1px #ccc;
-}
-
-.fruits button {
-  margin: 4px;
+.apple,
+.cherries,
+.strawberry {
+  width: 260px;
+  height: 200px;
+  border-radius: 2%;
 }
 
 .apple {
   background: url("img/apple.jpg") no-repeat center;
-  width: 260px;
-  height: 200px;
 }
+
 .strawberry {
   background: url("img/straw.jpg") no-repeat center;
   background-size: cover;
-  width: 260px;
-  height: 200px;
 }
+
 .cherries {
   background: url("img/cherries.jpg") no-repeat center;
   background-size: cover;
-  width: 260px;
-  height: 200px;
 }
