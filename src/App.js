@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import Fruits from './components/Fruits';
 import Cart from './components/Cart';
 // function App() {
 //   return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import Fruits from './Fruits';
 
 class Fruit {
   constructor(name, quantity) {
@@ -49,6 +48,7 @@ class Cart extends React.Component {
   // this.updatetotal();
   }
   reset(fruit){
+    this.state.total = this.state.total - fruit.quantity;
     fruit.quantity = 0;
     this.setState({
       allFruits: this.state.allFruits
@@ -56,12 +56,12 @@ class Cart extends React.Component {
   // this.updatetotal();
   }
 
-  updatetotal(){
-    // for (const fruit of this.state.allFruits) {
-      //
-    // }
-    console.log(this.state.total);
-  }
+  // updatetotal(){
+  //   // for (const fruit of this.state.allFruits) {
+  //     //
+  //   // }
+  //   console.log(this.state.total);
+  // }
 
   render(){
     return(
@@ -82,8 +82,10 @@ class Cart extends React.Component {
 
          <h2> Our Fruits</h2>
                 <ul className="fruits-wrap">
-                    {this.state.allFruits.map((fruit) => (
-                    <li ><h3>{fruit.name} </h3>
+                    {this.state.allFruits.map((fruit, i) => (
+                    <li key = {i}>
+                      <div className={fruit.name}></div>
+                      <h3>{fruit.name} </h3>
                         <h4>{fruit.quantity} </h4>
                     <div>
                         <button onClick={() => this.addOne(fruit) }className="btn btn-primary">+</button>

@@ -41,3 +41,21 @@ nav > ul {
 .fruits button {
   margin: 4px;
 }
+
+.apple {
+  background: url("img/apple.jpg") no-repeat center;
+  width: 260px;
+  height: 200px;
+}
+.strawberry {
+  background: url("img/straw.jpg") no-repeat center;
+  background-size: cover;
+  width: 260px;
+  height: 200px;
+}
+.cherries {
+  background: url("img/cherries.jpg") no-repeat center;
+  background-size: cover;
+  width: 260px;
+  height: 200px;
+}
