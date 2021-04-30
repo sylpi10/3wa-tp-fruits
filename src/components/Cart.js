@@ -40,12 +40,12 @@ class Cart extends React.Component {
   minusOne(fruit){
     if (fruit.quantity > 0) {
       fruit.quantity --;
+      this.setState({
+        total: this.state.total --,
+        allFruits: this.state.allFruits,
+        total: this.state.total
+    });
     }
-    this.setState({
-      total: this.state.total --,
-      allFruits: this.state.allFruits,
-      total: this.state.total
-  });
   // this.updatetotal();
   }
   reset(fruit){
