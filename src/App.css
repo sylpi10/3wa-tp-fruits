@@ -1,7 +1,10 @@
 .addone-btn {
   background-color: #49ef49 !important;
 }
-
+nav li:hover {
+  cursor: pointer;
+  color: orange;
+}
 .apple,
 .cherries,
 .strawberry {
