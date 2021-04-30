@@ -5,9 +5,6 @@ class Fruit {
   constructor(name, quantity) {
     this.name = name;
     this.quantity = quantity;
-    this.addOne = () => {
-      alert('cliiick')
-    }
   }
 }
 
@@ -21,7 +18,6 @@ class Cart extends React.Component {
   }
 
   componentDidMount(){
-      
     const straw = new Fruit("strawberry", 0);
     const apple = new Fruit("apple", 0);
     const cherries = new Fruit("cherries", 0);
@@ -42,8 +38,10 @@ class Cart extends React.Component {
   // this.updatetotal();
   }
   minusOne(fruit){
-    fruit.quantity --;
-    this.state.total --;
+    if (fruit.quantity > 0) {
+      fruit.quantity --;
+      this.state.total --;
+    }
     this.setState({
       allFruits: this.state.allFruits,
       total: this.state.total
@@ -68,25 +66,24 @@ class Cart extends React.Component {
   render(){
     return(
       <div className="">
-       
           <nav>
-          <ul>
-             <li> Home</li>
-            <li> Our Fruits </li>
-            <div>
-              <li className="text-warning">
-              Cart Total: {this.state.total}
-              </li>
-            </div>
-          </ul>
+            <ul>
+              <li> Home</li>
+              <li> Our Fruits </li>
+              <div>
+                <li className="text-warning">
+                Cart Total: {this.state.total}
+                </li>
+              </div>
+            </ul>
         </nav>
         <h1>Amazing Fruits Shop</h1>
         <div className="fruits">
 
          <h2> Our Fruits</h2>
                 <ul className="fruits-wrap">
-                    {this.state.allFruits.map((fruit, i) => (
-                    <li key={i}><h3>{fruit.name} </h3>
+                    {this.state.allFruits.map((fruit) => (
+                    <li ><h3>{fruit.name} </h3>
                         <h4>{fruit.quantity} </h4>
                     <div>
                         <button onClick={() => this.addOne(fruit) }className="btn btn-primary">+</button>
