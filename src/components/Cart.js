@@ -77,8 +77,10 @@ class Cart extends React.Component {
               </div>
             </ul>
         </nav>
-        <h1>Amazing Fruits Shop</h1>
-        <div className="fruits">
+        <div className="container">
+
+        <h1 className="mt-5">Amazing Fruits Shop</h1>
+        <div className="fruits shadow">
 
          <h2> Our Fruits</h2>
                 <ul className="fruits-wrap">
@@ -88,15 +90,17 @@ class Cart extends React.Component {
                       <h3>{fruit.name} </h3>
                         <h4>{fruit.quantity} </h4>
                     <div>
-                        <button onClick={() => this.addOne(fruit) }className="btn btn-primary">+</button>
+                        <button onClick={() => this.addOne(fruit) } className="btn btn-primary">+</button>
                         <button onClick={() => this.minusOne(fruit) } className="btn btn-warning">-</button>
-                        <button onClick={() => this.reset(fruit) }className="btn btn-danger">x</button>
+                        <button onClick={() => this.reset(fruit) } className="btn btn-danger">x</button>
                       </div>
                     </li>
 
                 ))}
                 </ul>
         </div>
+        </div>
+
 
         {/* <Fruits/> */}
       </div>
